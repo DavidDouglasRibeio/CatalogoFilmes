@@ -1,4 +1,4 @@
-use INFOAcatalogoFilmesDB;
+use infoaCatalogoFilmesDB;
 
 -- Carga Inicial ADM
 insert into tb_usuario(nm_usuario, ds_email, ds_senha)

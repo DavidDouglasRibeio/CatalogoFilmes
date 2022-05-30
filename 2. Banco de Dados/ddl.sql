@@ -1,5 +1,5 @@
-create database INFOAcatalogoFilmesDB;
-use INFOAcatalogoFilmesDB;
+create database infoaCatalogoFilmesDB;
+use infoaCatalogoFilmesDB;
 
 create table tb_usuario(
 id_usuario		int primary key auto_increment,
