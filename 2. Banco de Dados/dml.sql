@@ -18,11 +18,16 @@ and   ds_senha = '1234';
 
 
 -- CSU02: Cadastrar filme
-insert into tb_filme(id_usuario, nm_filme, ds_sinopse, vl_avaliacao, dt_lancamento, bt_disponivel, img_filme)
-			values(1, 'Harry Potter e a Pedra Filosofal', 'Filme top', 8.5, '2015-06-17', true, '/armazenameto/filmes/harry.jpg');
-insert into tb_filme(id_usuario, nm_filme, ds_sinopse, vl_avaliacao, dt_lancamento, bt_disponivel, img_filme)
-			values(2, 'Carros', 'Filme foda', 9.2, '2013-06-17', true, '/armazenameto/filmes/carros.jpg');
+insert into tb_filme(id_usuario, nm_filme, ds_sinopse, vl_avaliacao, dt_lancamento, bt_disponivel)
+			values(1, 'Harry Potter e a Pedra Filosofal', 'Filme top', 8.5, '2015-06-17', true);
+insert into tb_filme(id_usuario, nm_filme, ds_sinopse, vl_avaliacao, dt_lancamento, bt_disponivel)
+			values(2, 'Carros', 'Filme foda', 9.2, '2013-06-17', true);
             
+
+-- CSU02.1: Alterar imagem
+update tb_filme
+set img_filme = 'storage/filme/capa.jpg'
+where id_filme = 1
             
 -- CSU03: Alterar filme
 update tb_filme
@@ -30,7 +35,6 @@ set nm_filme = 'Harry Potter e a Camara Secreta',
 	ds_sinopse = 'Filme mt loko',
     vl_avaliacao = 9.5,
     dt_lancamento = '2010-09-04',
-    img_filme = '/armazenameto/filmes/harrypotter.jpg'
 where id_filme = 1;
 
 
