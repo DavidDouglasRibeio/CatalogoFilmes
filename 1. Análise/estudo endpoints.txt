@@ -18,7 +18,6 @@ request {
     "avaliacao": 0.0,
     "lancamento": "2022-00-00",
     "disponivel": true,
-    "imagem": "",
     "usuario": 0
 }
 response {

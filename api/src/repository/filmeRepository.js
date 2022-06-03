@@ -6,11 +6,11 @@ import { con } from './connection.js'
 export async function inserirFilme(filme) {
     const comando =
     `
-    insert into tb_filme(id_usuario, nm_filme, ds_sinopse, vl_avaliacao, dt_lancamento, bt_disponivel, img_filme)
+    insert into tb_filme(id_usuario, nm_filme, ds_sinopse, vl_avaliacao, dt_lancamento, bt_disponivel)
 			values(?, ?, ?, ?, ?, ?)
-    `;
+    `
 
-    const [resposta] = await con.query(comando);
+    const [resposta] = await con.query(comando, [filme.usuario, filme.nome, filme.sinopse, filme.avaliacao, filme.lancamento, filme.disponivel]);
     filme.id = resposta.insertId
 
     return filme;
@@ -29,13 +29,13 @@ export async function alterarFilme(id, filme) {
         dt_lancamento  = ?,
         bt_disponivel  = ?,
         id_usuario     = ?
-    where id_filme = ?
+    where id_filme     = ?
     `;
     const [resposta] = await con.query(comando, [id, filme.nome, filme.sinopse, filme.avaliacao, filme.lancamento, filme.disponivel, filme.usuario]);
     return resposta.affectedRows;
 }
 
-export async function alterarFilmeImagm(id, imagem) {
+export async function alterarFilmeImagem(id, imagem) {
     const comando = 
     `
     update tb_filme
@@ -93,7 +93,7 @@ export async function consultarFilmesNome(nome) {
       where nm_filme like ?
    `;
 
-   const [linhas] = await con.query(comando, [`${nome}`]);
+   const [linhas] = await con.query(comando, [`%${nome}%`]);
    return linhas;
 }
 
